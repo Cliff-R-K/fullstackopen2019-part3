@@ -1,1 +1,1 @@
-GET http://localhost:3001/api/persons
+GET https://lit-stream-69857.herokuapp.com/api/persons/
