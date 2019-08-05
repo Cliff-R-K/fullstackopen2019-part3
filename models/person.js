@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const url = "mongodb+srv://cliff:cliff666@cluster0-ix5ws.mongodb.net/phonebook-app?retryWrites=true&w=majority" //process.env.MONGODB_URI
+const url = process.env.MONGODB_URI
 mongoose.set('useFindAndModify', false)
 console.log('connecting to', url)
 
@@ -12,8 +12,15 @@ mongoose.connect(url, { useNewUrlParser: true })
     )
 
 const personSchema = new mongoose.Schema({
-    name: String,
-    number: String
+    name: {
+        type: String,
+        minlength: 2,
+        required: true
+    },
+    number: {
+        type: String,
+        required: true
+    }
 
 })
 
